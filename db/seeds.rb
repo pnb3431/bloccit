@@ -8,6 +8,16 @@ require 'random_data'
 end
 posts = Post.all
 
+50.times do
+    Advertisement.create!(
+        title: RandomData.random_sentence,
+        copy: RandomData.random_paragraph
+       
+    )
+end
+
+advertisements = Advertisement.all
+
 #Create Comments
 
 100.times do
