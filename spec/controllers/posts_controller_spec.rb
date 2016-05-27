@@ -15,6 +15,8 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:posts)).to eq([my_post])
     end
   end
+  
+  
 
   describe "GET show" do
     it "returns http success" do
