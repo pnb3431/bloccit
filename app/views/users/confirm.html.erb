@@ -1,0 +1,21 @@
+<h2>Sign Up Confirmation</h2>
+<h3>Are you sure these values are correct?</h3>
+
+<div class="row">
+  <div class="col-md-8">
+    <br>
+    <p>Email: <%= @user.email %></p>
+    <p>Name: <%= @user.name %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <br>
+    <ul class="nav nav-pills">
+      <li><%= button_to 'Yes', {controller: 'users', action: 'create', params: params}, {class: 'btn btn-success'} %></li>
+      <li>&nbsp;&nbsp;&nbsp;</li>
+      <li><%= button_to 'No',  {controller: 'users', action: 'new'}, {method: :get, class: 'btn'} %></li>
+    </ul>
+  </div>
+
+</div>
