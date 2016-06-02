@@ -1,5 +1,11 @@
 module TopicsHelper
     def user_is_authorized_for_topics?
-        current_user && current_user.admin?
+     if !current_user
+       false
+     elsif current_user.admin?
+       true
+     else
+       current_user.moderator? 
+     end
     end
 end
