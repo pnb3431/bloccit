@@ -13,6 +13,7 @@
          <small>
            <%= pluralize(@user.posts.count, 'post') %>,
            <%= pluralize(@user.comments.count, 'comment') %>
+           <%= pluralize(@user.favorites.count, 'favorite') %>
          </small>
        </div>
      </div>
@@ -20,7 +21,24 @@
  </div>
  
  <h2>Posts</h2>
- <%= render @user.posts %>
+ <% if @user.posts.count == 0 %>
+ <%= "#{@user.name} has not submitted any posts yet." %>
+ <% end %>
+
+ <% if @user.posts.count > 0 %>
+ <%= render @user.posts %>		 
+ <% end %>
  
  <h2>Comments</h2>
- <%= render @user.comments %>
+ <% if @user.comments.count == 0 %>
+ <%= "#{@user.name} has not submitted any comments yet." %>
+ <% end %>
+
+ <% if @user.comments.count > 0 %>
+ <%= render @user.comments %>		 
+ <% end %>
+ 
+ <h2>Favorite Posts</h2>
+    <% @user.favorites.each do |favorite| %>
+      <%= image_tag(favorite.post.user.avatar_url(48), class: "gravatar") %><%= render favorite.post %>
+    <% end %>
