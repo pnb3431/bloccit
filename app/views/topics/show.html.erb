@@ -12,11 +12,15 @@
        <br />
        <%= @topic.description %>
      </p>
-     <p class="lead">
-       <%= render partial: "comments/list", locals: { comments: @topic.comments } %>
-         <br />
-         <%= @topic.description %>
-     </p>
+
+    <div>
+     <h3>Comments</h3>
+         <%= render @topic.comments %>
+       <% if current_user %>
+         <%= render 'comments/form', comment: Comment.new, topic: @topic %>
+       <% end %>
+    </div>
+ <br style="clear:both;" />
      <% @topic.posts.each do |post| %>
        <div class="media">
          <div class="media-body">

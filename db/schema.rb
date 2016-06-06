@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604194835) do
+ActiveRecord::Schema.define(version: 20160606143205) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
@@ -21,26 +21,17 @@ ActiveRecord::Schema.define(version: 20160604194835) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "commentings", force: :cascade do |t|
-    t.integer  "comment_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
-  add_index "commentings", ["comment_id"], name: "index_commentings_on_comment_id"
-  add_index "commentings", ["commentable_type", "commentable_id"], name: "index_commentings_on_commentable_type_and_commentable_id"
-
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "topic_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["topic_id"], name: "index_comments_on_topic_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "labelings", force: :cascade do |t|
