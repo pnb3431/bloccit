@@ -1,6 +1,22 @@
-== README
+Bloccit
 
-## Bloccit: a Reddit replica to teach the fundamentals of web development and Rails.
- 
- Made with my mentor at [Bloc](http://bloc.io).
-<tt>rake doc:app</tt>.
+Bloccit is an app where people can post, vote on, share and save links and comments.
+
+Visit the deployed application here
+
+Features Implemented
+
+Seeded data
+User Signup/sign-in
+Topic/Post/Comment association and relationships
+Validation of form inputs
+Post Markdown
+Uploading images
+Pagination
+Creating and destroying comments with AJAX
+RSpec
+Voting on Topics and Posts
+Mocking
+Favoriting posts
+User profiles
+Private topics
